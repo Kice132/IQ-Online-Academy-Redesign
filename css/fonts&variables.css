@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "DMSans";
+  src: url(../fonts/DMSans-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Domine";
+  src: url(../fonts/Domine-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/Inter_28pt-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../fonts/Lora-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url(../fonts/Merriweather_120pt-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url(../fonts/Montserrat-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url(../fonts/OpenSans-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Playfair";
+  src: url(../fonts/Playfair_144pt-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SourceSans3";
+  src: url(../fonts/SourceSans3-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(../fonts/SourceSansPro-Regular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(../fonts/source-sans-pro.light.woff2);
+  font-weight: 300;
+}/*# sourceMappingURL=fonts&variables.css.map */
