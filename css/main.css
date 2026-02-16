@@ -160,24 +160,50 @@ a:visited {
     display: block;
     background: none;
     border: none;
+    z-index: 1000;
     cursor: pointer;
   }
   .header-container .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
     background: #FFFFFF;
-    max-width: 40vw;
-    width: 100%;
-    z-index: 20;
+    transform: translate(-100%, -50%);
+    width: 50%;
+    z-index: 1000;
     padding: 16px;
     align-items: center;
     flex-direction: column;
     gap: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
   }
   .header-container .nav-links.active {
     display: flex !important;
+    animation: sliedin 0.6s ease forwards;
+  }
+  @keyframes sliedin {
+    from {
+      transform: translate(200%, -100%) scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: translate(50%, 50%) scale(1);
+      opacity: 1;
+    }
+  }
+  .header-container .nav-links.closeup {
+    animation: slideout 0.6s ease forwards;
+  }
+  @keyframes slideout {
+    from {
+      transform: translate(50%, -50%);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-100%, -50%);
+      opacity: 0;
+    }
   }
 }
 
@@ -337,11 +363,11 @@ h2 {
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-  padding: 20px 0;
 }
 .sec3 p {
   font-family: "SourceSansPro";
   font-size: 24px;
+  text-align: center;
 }
 .sec3 .carousel {
   display: flex;
@@ -349,9 +375,6 @@ h2 {
   align-items: center;
   flex-wrap: nowrap;
   gap: 12px;
-  width: 100%;
-  padding: 0 40px;
-  height: 575px;
 }
 .sec3 .carousel .nav {
   cursor: pointer;
@@ -360,39 +383,32 @@ h2 {
   overflow: hidden;
   width: 100%;
 }
-.sec3 .carousel .viewport .track {
+.sec3 .carousel .viewport .page {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  transition: transform 0.4s ease;
-}
-.sec3 .carousel .viewport .track .page {
-  flex: 0 0 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  transition: transform 0.4 ease;
   gap: 16px;
 }
-.sec3 .carousel .viewport .track .page .cards {
+.sec3 .carousel .viewport .page .cards {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-  max-width: 333px;
+  flex: 0 0 auto;
   height: auto;
-  width: 100%;
+  width: 30%;
   margin: 0 auto;
 }
-.sec3 .carousel .viewport .track .page .cards h6 {
+.sec3 .carousel .viewport .page .cards h6 {
   font-family: "SourceSansPro";
   font-size: 24px;
 }
-.sec3 .carousel .viewport .track .page .cards p {
+.sec3 .carousel .viewport .page .cards p {
   font-family: "SourceSansPro.light";
   font-size: 18px;
 }
-.sec3 .carousel .viewport .track .page .cards img {
+.sec3 .carousel .viewport .page .cards img {
   width: 100%;
 }
 
@@ -409,7 +425,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 20px;
+  width: -webkit-fill-available;
   margin: 0 auto;
 }
 .sec4 .carousel .nav {
@@ -608,6 +624,11 @@ footer .footer-container .img-logos .footer-icons {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   justify-items: center;
+}
+@media (max-width: 1023.98px) {
+  .our-programs .programs-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (max-width: 767.98px) {
   .our-programs .programs-container {
@@ -895,13 +916,13 @@ footer .footer-container .img-logos .footer-icons {
   height: 100%;
   padding-right: 40px;
 }
+.popups .pops .pop .highlights .highlights2 p {
+  font-size: 14px;
+}
 .popups .pops .pop .highlights .highlights2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-}
-.popups .pops .pop .highlights .highlights2 p {
-  font-size: 14px;
 }
 .popups .pops .pop .highlights .highlights2 .hcards {
   display: flex;

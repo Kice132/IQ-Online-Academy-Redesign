@@ -1,28 +1,3 @@
-const track = document.querySelector(".track");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-
-let currentPage = 0;
-const totalPages = 2;
-
-function updateCarousel() {
-  track.style.transform = `translateX(-${currentPage * 100}%)`;
-}
-
-next?.addEventListener("click", () => {
-  if (currentPage < totalPages - 1) {
-    currentPage++;
-    updateCarousel();
-  }
-});
-
-prev?.addEventListener("click", () => {
-  if (currentPage > 0) {
-    currentPage--;
-    updateCarousel();
-  }
-});
-
 const carouselTrack = document.querySelector(".track1");
 const carouselPages = document.querySelectorAll(".page1");
 const nextButton = document.querySelector(".next1");
@@ -50,7 +25,7 @@ const overLay = document.querySelector(".overlay");
 const closePopupBlock = document.querySelectorAll(".close-btn");
 
 function closePopup() {
-  popup.classList.remove("display-flex");
+  popup?.classList.remove("display-flex");
   openPop.forEach((nav) => nav.classList.remove("display-block"));
   popupBlock.forEach((sec) => sec.classList.remove("popup-open"));
   overLay.classList.remove("display-block");
@@ -108,7 +83,53 @@ closePopupBlock?.forEach((item) => {
 
 const burger = document.getElementById("burger");
 const navLinks = document.getElementById("navLinks");
+const overlayy = document.querySelector(".overlay");
 
-burger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+burger?.addEventListener("click", () => {
+  navLinks?.classList.toggle("active");
+  overlayy?.classList.toggle("display-block");
 });
+
+overlayy?.addEventListener("click", () => {
+  navLinks?.classList.remove("active");
+  overlayy?.classList.remove("display-block");
+});
+
+//Carousel
+
+const track = document.querySelector(".page");
+const card = document.querySelectorAll(".cards");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let index = 0;
+
+if (card.length != 0) {
+  let index = 0;
+  function cardsPerView() {
+    if (window.innerWidth > 768) return 3;
+    if (window.innerWidth <= 768) return 2;
+    if (window.innerWidth < 560) return 1;
+  }
+
+  function updateCarousel() {
+    const cardWidth = card[0].offsetWidth;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const maxIndex = card.length - cardsPerView();
+    index = Math.min(index + 1, maxIndex);
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = Math.max(index - 1, 0);
+    updateCarousel();
+  });
+
+  window.addEventListener("resize", () => {
+    index = 0;
+    updateCarousel();
+  });
+}
