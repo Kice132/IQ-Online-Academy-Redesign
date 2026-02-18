@@ -98,27 +98,24 @@ overlayy?.addEventListener("click", () => {
 //Carousel
 
 const track = document.querySelector(".page");
-const card = document.querySelectorAll(".cards");
+const cards = document.querySelectorAll(".cards");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
-
-let index = 0;
-
-if (card.length != 0) {
+if (cards.length != 0) {
   let index = 0;
   function cardsPerView() {
-    if (window.innerWidth > 768) return 3;
-    if (window.innerWidth <= 768) return 2;
     if (window.innerWidth < 560) return 1;
+    if (window.innerWidth < 768) return 2;
+    return 3;
   }
 
   function updateCarousel() {
-    const cardWidth = card[0].offsetWidth;
+    const cardWidth = cards[0].offsetWidth;
     track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
   nextBtn.addEventListener("click", () => {
-    const maxIndex = card.length - cardsPerView();
+    const maxIndex = cards.length - cardsPerView();
     index = Math.min(index + 1, maxIndex);
     updateCarousel();
   });

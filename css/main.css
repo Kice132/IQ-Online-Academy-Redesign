@@ -95,6 +95,10 @@ a:visited {
   src: url(../fonts/SourceSansPro-SemiBold.woff2);
   font-weight: 600;
 }
+* {
+  scroll-behavior: smooth;
+}
+
 .main-padding {
   padding: 40px;
 }
@@ -375,6 +379,7 @@ h2 {
   align-items: center;
   flex-wrap: nowrap;
   gap: 12px;
+  width: -webkit-fill-available;
 }
 .sec3 .carousel .nav {
   cursor: pointer;
@@ -385,8 +390,8 @@ h2 {
 }
 .sec3 .carousel .viewport .page {
   display: flex;
-  transition: transform 0.4 ease;
-  gap: 16px;
+  transition: transform 0.4s ease;
+  gap: 10px;
 }
 .sec3 .carousel .viewport .page .cards {
   display: flex;
@@ -410,6 +415,16 @@ h2 {
 }
 .sec3 .carousel .viewport .page .cards img {
   width: 100%;
+}
+@media (max-width: 767.98px) {
+  .sec3 .carousel .cards {
+    width: 46% !important;
+  }
+}
+@media (max-width: 559.98px) {
+  .sec3 .carousel .cards {
+    width: 80% !important;
+  }
 }
 
 .sec4 {
@@ -524,7 +539,6 @@ footer {
   justify-content: center;
   flex-wrap: nowrap;
   padding: 40px;
-  position: relative;
 }
 footer h6 {
   font-family: "SourceSansPro";
@@ -554,12 +568,24 @@ footer .footer-container .info h6 {
   font-size: 18px;
   font-family: "SourceSansPro";
 }
+@media (max-width: 767.98px) {
+  footer .footer-container .info {
+    text-align: center;
+  }
+}
 footer .footer-container .img-logos {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   flex-wrap: wrap;
   gap: 20px;
+}
+@media (max-width: 767.98px) {
+  footer .footer-container .img-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 footer .footer-container .img-logos .footer-icons {
   display: flex;
